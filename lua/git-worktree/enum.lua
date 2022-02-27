@@ -13,6 +13,7 @@ end
 return {
     Operations = Enum({
         Create = "create",
+        PreSwitch = "preswitch",
         Switch = "switch",
         Delete = "delete",
     })

@@ -155,8 +155,11 @@ can act on it.
 ```lua
 local Worktree = require("git-worktree")
 
--- op = Operations.Switch, Operations.Create, Operations.Delete
+-- op = Operations.PreSwitch, Operations.Switch, Operations.Create, Operations.Delete
 -- metadata = table of useful values (structure dependent on op)
+--      PreSwitch
+--          path = path you switched to
+--          prev_path = previous worktree path
 --      Switch
 --          path = path you switched to
 --          prev_path = previous worktree path

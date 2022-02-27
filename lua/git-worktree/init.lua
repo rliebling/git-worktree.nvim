@@ -381,6 +381,7 @@ local function create_worktree(path, branch, upstream, found_branch)
         end)
     end
 
+    emit_on_change(Enum.Operations.PreSwitch, { path = path, prev_path = vim.fn.getcwd() })
     create:start()
 end
 
@@ -417,6 +418,7 @@ M.switch_worktree = function(path)
         end
 
         vim.schedule(function()
+            emit_on_change(Enum.Operations.PreSwitch, { path = path, prev_path = prev_path })
             local prev_path = change_dirs(path)
             emit_on_change(Enum.Operations.Switch, { path = path, prev_path = prev_path })
         end)
